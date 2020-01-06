@@ -31,7 +31,7 @@ router.post('/login', (req,res)=>{
 
     db.Login(body)
     .then((user)=>{
-        const bool= bcrypt.compare(body.password, user.password,(err,response)=>{
+        bcrypt.compare(body.password, user.password,(err,response)=>{
             if(user && response){
                 const token = signToken(user)
                 res.status(200).json({
