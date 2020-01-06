@@ -5,6 +5,7 @@ const router = express.Router();
 
 //user CRUD***************************************************
 router.get('/', (req,res)=>{
+    console.log("Hi there")
     qs.getAllusers()
     .then(users=>{
         res.status(200).json({users})
