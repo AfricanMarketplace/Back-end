@@ -3,7 +3,7 @@
 module.exports = {
 
   development: {
-    client: 'pg',
+    client: config.DB_DIALECT,
     useNullAsDefault: true,
     connection: process.env.DATABASE_URL,
     migrations:{
