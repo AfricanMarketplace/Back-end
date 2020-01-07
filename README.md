@@ -50,85 +50,85 @@ Node.js
 
 **Returns:**
 
-{
-  "users": [
     {
-      "id": 1,
-      "username": "Kyle",
-      "locations": [
+    "users": [
         {
-          "id": 1,
-          "name": "CityLocation",
-          "user_id": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "username": "Jet",
-      "locations": [
+        "id": 1,
+        "username": "Kyle",
+        "locations": [
+            {
+            "id": 1,
+            "name": "CityLocation",
+            "user_id": 1
+            }
+        ]
+        },
         {
-          "id": 2,
-          "name": "RuralLocation",
-          "user_id": 2
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "username": "Erica",
-      "locations": [
+        "id": 2,
+        "username": "Jet",
+        "locations": [
+            {
+            "id": 2,
+            "name": "RuralLocation",
+            "user_id": 2
+            }
+        ]
+        },
         {
-          "id": 3,
-          "name": "CityLocation",
-          "user_id": 3
+        "id": 3,
+        "username": "Erica",
+        "locations": [
+            {
+            "id": 3,
+            "name": "CityLocation",
+            "user_id": 3
+            }
+        ]
         }
-      ]
+    ]
     }
-  ]
-}
 
 ## (users) **GET** users/:id
 
 **Returns**
 
-{
-  "user": {
-    "id": 2,
-    "username": "Jet",
-    "locations": [
-      {
-        "id": 2,
-        "name": "RuralLocation",
-        "user_id": 2
-      }
-    ]
-  }
-}
+    {
+        "user": {
+            "id": 2,
+            "username": "Jet",
+            "locations": [
+                {
+                    "id": 2,
+                    "name": "RuralLocation",
+                    "user_id": 2
+                }
+            ]
+        }
+    }
 
 ## (users) **PUT** users/:id
 
 **Expects**
 
-{
-	"username": "test"
-}
+    {
+        "username": "test"
+    }
 
 **Returns:200 status**
 
-{
-  "id": [
-    5
-  ]
-}
+    {
+        "id": [
+            5
+        ]
+    }
 
 ## (users) **DELETE** /users/:id
 
 **Returns**
 
-{
-  "status": "true"
-}
+    {
+        "status": "true"
+    }
 
 #### Locations endPoints:
 
@@ -136,78 +136,78 @@ Node.js
 
 **Returns**
 
-{
-  "locations": [
     {
-      "id": 1,
-      "name": "CityLocation",
-      "user_id": 1
-    },
-    {
-      "id": 2,
-      "name": "RuralLocation",
-      "user_id": 2
-    },
-    {
-      "id": 3,
-      "name": "CityLocation",
-      "user_id": 3
+        "locations": [
+            {
+                "id": 1,
+                "name": "CityLocation",
+                "user_id": 1
+            },
+            {
+                "id": 2,
+                "name": "RuralLocation",
+                "user_id": 2
+            },
+            {
+                "id": 3,
+                "name": "CityLocation",
+                "user_id": 3
+            }
+        ]
     }
-  ]
-}
 
 ## (location) **GET** /location/:id
 
 **Returns**
 
-{
-  "location": {
-    "id": 1,
-    "name": "CityLocation",
-    "user_id": 1
-  }
-}
+    {
+        "location": {
+            "id": 1,
+            "name": "CityLocation",
+            "user_id": 1
+        }
+    }
 
 ## (location) **POST** /location
 
 **Expects**
 
-{
-	"name": "Yeet",
-	"user_id": 1
-}
+    {
+        "name": "Yeet",
+        "user_id": 1
+    }
 
 **Returns: 200 Status**
 
-{
-  "id": [
-    4
-  ]
-}
+    {
+        "id": [
+            4
+        ]
+    }
 
 ## (location) **PUT** /location/:id
 
 **Expects**
 
-{
-	"name": "Yate"
-}
+    {
+        "name": "Yate"
+    }
 
 **Returns**
 
-{
-  "id": [
-    4
-  ]
-}
+    {
+        "id": [
+            4
+        ]
+    }
 
 ## (location) **DELETE** /location/:id
 
 **Returns**
 
-{
-    "status":"true"
-}
+    {
+        "status":"true"
+    }
 
 #### Item endPoints:
 
@@ -215,58 +215,58 @@ Node.js
 
 **Returns**
 
-{
-  "items": [
     {
-      "id": 1,
-      "name": "Beef",
-      "description": "Tasty meat",
-      "price": "30.25",
-      "user_id": 1,
-      "category_id": 1,
-      "user": {
-        "id": 1,
-        "username": "Kyle"
-      },
-      "category": {
-        "id": 1,
-        "name": "Food"
-      }
-    },
-    {
-      "id": 2,
-      "name": "Scale",
-      "description": "measures up to a mg",
-      "price": "60.25",
-      "user_id": 2,
-      "category_id": 2,
-      "user": {
-        "id": 2,
-        "username": "Jet"
-      },
-      "category": {
-        "id": 2,
-        "name": "Tools"
-      }
-    },
-    {
-      "id": 3,
-      "name": "Curtains",
-      "description": "Nice looking things",
-      "price": "40.25",
-      "user_id": 3,
-      "category_id": 3,
-      "user": {
-        "id": 3,
-        "username": "Erica"
-      },
-      "category": {
-        "id": 3,
-        "name": "Decorations"
-      }
+        "items": [
+            {
+            "id": 1,
+            "name": "Beef",
+            "description": "Tasty meat",
+            "price": "30.25",
+            "user_id": 1,
+            "category_id": 1,
+                "user": {
+                    "id": 1,
+                    "username": "Kyle"
+                },
+                "category": {
+                    "id": 1,
+                    "name": "Food"
+                }
+            },
+            {
+            "id": 2,
+            "name": "Scale",
+            "description": "measures up to a mg",
+            "price": "60.25",
+            "user_id": 2,
+            "category_id": 2,
+                "user": {
+                    "id": 2,
+                    "username": "Jet"
+                    },
+                "category": {
+                    "id": 2,
+                    "name": "Tools"
+                }
+            },
+            {
+            "id": 3,
+            "name": "Curtains",
+            "description": "Nice looking things",
+            "price": "40.25",
+            "user_id": 3,
+            "category_id": 3,
+                "user": {
+                    "id": 3,
+                    "username": "Erica"
+                },
+                "category": {
+                    "id": 3,
+                    "name": "Decorations"
+                }
+            }
+        ]
     }
-  ]
-}
 
 ## (item) **GET** /item/:id
 
@@ -280,14 +280,14 @@ Node.js
     "price": "30.25",
     "user_id": 1,
     "category_id": 1,
-    "user": {
-      "id": 1,
-      "username": "Kyle"
-    },
-    "category": {
-      "id": 1,
-      "name": "Food"
-    }
+        "user": {
+        "id": 1,
+        "username": "Kyle"
+        },
+        "category": {
+        "id": 1,
+        "name": "Food"
+        }
   }
 }
 
@@ -295,49 +295,49 @@ Node.js
 
 **Expects**
 
-{
-    "name": "Yeet",
-    "description": "Yate",
-    "price": "30.25",
-    "user_id": 2,
-    "category_id": 3
-}
+    {
+        "name": "Yeet",
+        "description": "Yate",
+        "price": "30.25",
+        "user_id": 2,
+        "category_id": 3
+    }
 
 **Returns: 200 Status**
 
-{
-  "id": [
-    5
-  ]
-}
+    {
+        "id": [
+            5
+        ]
+    }
 
 ## (item) **PUT** /item/:id
 
 **Expects**
 
-{
-    "name": "Rug",
-    "description": "Beautiful blue persian rug ",
-    "price": "3000.25",
-    "user_id": 1,
-    "category_id": 3
-}
+    {
+        "name": "Rug",
+        "description": "Beautiful blue persian rug ",
+        "price": "3000.25",
+        "user_id": 1,
+        "category_id": 3
+    }
 
 **Returns; 200 Status**
 
-{
-  "id": [
-    5
-  ]
-}
+    {
+        "id": [
+            5
+        ]
+    }
 
 ## (item) **DELETE** /item/:id
 
 **Returns**
 
-{
-    "status":"true"
-}
+    {
+        "status":"true"
+    }
 
 #### Category endPoints:
 
@@ -345,105 +345,105 @@ Node.js
 
 **Returns**
 
-{
-  "categories": [
     {
-      "id": 1,
-      "name": "Food",
-      "items": [
-        {
-          "id": 1,
-          "name": "Beef",
-          "description": "Tasty meat",
-          "price": "30.25",
-          "user_id": 1,
-          "category_id": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Tools",
-      "items": [
-        {
-          "id": 2,
-          "name": "Scale",
-          "description": "measures up to a mg",
-          "price": "60.25",
-          "user_id": 2,
-          "category_id": 2
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Decorations",
-      "items": [
-        {
-          "id": 3,
-          "name": "Curtains",
-          "description": "Nice looking things",
-          "price": "40.25",
-          "user_id": 3,
-          "category_id": 3
-        }
-      ]
+        "categories": [
+            {
+            "id": 1,
+            "name": "Food",
+                "items": [
+                    {
+                    "id": 1,
+                    "name": "Beef",
+                    "description": "Tasty meat",
+                    "price": "30.25",
+                    "user_id": 1,
+                    "category_id": 1
+                    }
+                ]
+            },
+            {
+            "id": 2,
+            "name": "Tools",
+                "items": [
+                    {
+                    "id": 2,
+                    "name": "Scale",
+                    "description": "measures up to a mg",
+                    "price": "60.25",
+                    "user_id": 2,
+                    "category_id": 2
+                    }
+                ]
+            },
+            {
+            "id": 3,
+            "name": "Decorations",
+                "items": [
+                    {
+                    "id": 3,
+                    "name": "Curtains",
+                    "description": "Nice looking things",
+                    "price": "40.25",
+                    "user_id": 3,
+                    "category_id": 3
+                    }
+                ]
+            }
+        ]
     }
-  ]
-}
 
 ## (category) **GET** /category/:id
 
 **Returns**
 
-{
-  "category": {
-    "id": 4,
-    "name": "Testy testerson",
-    "items": []
-  }
-}
+    {
+        "category": {
+            "id": 4,
+            "name": "Testy testerson",
+            "items": []
+        }
+    }
 
 ## (category) **POST** /category
 
 **Expects**
 
-{
-    "name": "Yeet"
+    {
+        "name": "Yeet"
 
-}
+    }
 
 **Returns: 200 Status**
 
-{
-  "id": [
-    4
-  ]
-}
+    {
+        "id": [
+            4
+        ]
+    }
 
 ## (category) **PUT** /category/:id
 
 **Expects**
 
-{
-    "name": "Yate"
-}
+    {
+        "name": "Yate"
+    }
 
 **Returns: 200 Status**
 
-{
-  "id": [
-    4
-  ]
-}
+    {
+        "id": [
+            4
+        ]
+    }
 
 ## (category) **DELETE** /category/:id
 
 **Returns**
 
-{
-    "status":"true"
-}
+    {
+        "status":"true"
+    }
 
 
 
