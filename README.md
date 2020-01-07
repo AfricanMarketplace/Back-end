@@ -272,24 +272,24 @@ Node.js
 
 **Returns**
 
-{
-  "item": {
-    "id": 1,
-    "name": "Beef",
-    "description": "Tasty meat",
-    "price": "30.25",
-    "user_id": 1,
-    "category_id": 1,
-        "user": {
-        "id": 1,
-        "username": "Kyle"
-        },
-        "category": {
-        "id": 1,
-        "name": "Food"
+    {
+        "item": {
+            "id": 1,
+            "name": "Beef",
+            "description": "Tasty meat",
+            "price": "30.25",
+            "user_id": 1,
+            "category_id": 1,
+                "user": {
+                "id": 1,
+                "username": "Kyle"
+                },
+                "category": {
+                "id": 1,
+                "name": "Food"
+                }
         }
-  }
-}
+    }
 
 ## (item) **POST** /item
 
