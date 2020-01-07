@@ -268,25 +268,149 @@ Node.js
   ]
 }
 
-## (location) **GET** /location/:id
+## (item) **GET** /item/:id
 
 **Returns**
 
 {
-  "location": {
+  "item": {
     "id": 1,
-    "name": "CityLocation",
-    "user_id": 1
+    "name": "Beef",
+    "description": "Tasty meat",
+    "price": "30.25",
+    "user_id": 1,
+    "category_id": 1,
+    "user": {
+      "id": 1,
+      "username": "Kyle"
+    },
+    "category": {
+      "id": 1,
+      "name": "Food"
+    }
   }
 }
 
-## (location) **POST** /location
+## (item) **POST** /item
 
 **Expects**
 
 {
-	"name": "Yeet",
-	"user_id": 1
+    "name": "Yeet",
+    "description": "Yate",
+    "price": "30.25",
+    "user_id": 2,
+    "category_id": 3
+}
+
+**Returns: 200 Status**
+
+{
+  "id": [
+    5
+  ]
+}
+
+## (item) **PUT** /item/:id
+
+**Expects**
+
+{
+    "name": "Rug",
+    "description": "Beautiful blue persian rug ",
+    "price": "3000.25",
+    "user_id": 1,
+    "category_id": 3
+}
+
+**Returns; 200 Status**
+
+{
+  "id": [
+    5
+  ]
+}
+
+## (item) **DELETE** /item/:id
+
+**Returns**
+
+{
+    "status":"true"
+}
+
+#### Category endPoints:
+
+## (category) **GET** /category
+
+**Returns**
+
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Food",
+      "items": [
+        {
+          "id": 1,
+          "name": "Beef",
+          "description": "Tasty meat",
+          "price": "30.25",
+          "user_id": 1,
+          "category_id": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tools",
+      "items": [
+        {
+          "id": 2,
+          "name": "Scale",
+          "description": "measures up to a mg",
+          "price": "60.25",
+          "user_id": 2,
+          "category_id": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Decorations",
+      "items": [
+        {
+          "id": 3,
+          "name": "Curtains",
+          "description": "Nice looking things",
+          "price": "40.25",
+          "user_id": 3,
+          "category_id": 3
+        }
+      ]
+    }
+  ]
+}
+
+## (category) **GET** /category/:id
+
+**Returns**
+
+{
+  "category": {
+    "id": 4,
+    "name": "Testy testerson",
+    "items": []
+  }
+}
+
+## (category) **POST** /category
+
+**Expects**
+
+{
+    "name": "Yeet"
+
 }
 
 **Returns: 200 Status**
@@ -297,15 +421,15 @@ Node.js
   ]
 }
 
-## (location) **PUT** /location/:id
+## (category) **PUT** /category/:id
 
 **Expects**
 
 {
-	"name": "Yate"
+    "name": "Yate"
 }
 
-**Returns**
+**Returns: 200 Status**
 
 {
   "id": [
@@ -313,13 +437,14 @@ Node.js
   ]
 }
 
-## (location) **DELETE** /location/:id
+## (category) **DELETE** /category/:id
 
 **Returns**
 
 {
     "status":"true"
 }
+
 
 
 
