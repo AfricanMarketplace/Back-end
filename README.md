@@ -127,6 +127,14 @@ Node.js
                     "name": "RuralLocation",
                     "user_id": 2
                 }
+            ],
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Scale",
+                    "description": "measures up to a mg",
+                    "price": "60.25"
+                }
             ]
         }
     }
@@ -164,19 +172,55 @@ Node.js
     {
         "locations": [
             {
+            "id": 1,
+            "name": "CityLocation",
+            "user_id": 1,
+            "user": {
                 "id": 1,
-                "name": "CityLocation",
-                "user_id": 1
+                "username": "Kyle"
+            },
+            "items": [
+                {
+                "id": 1,
+                "name": "Beef",
+                "description": "Tasty meat",
+                "price": "30.25"
+                }
+            ]
             },
             {
+            "id": 2,
+            "name": "RuralLocation",
+            "user_id": 2,
+            "user": {
                 "id": 2,
-                "name": "RuralLocation",
-                "user_id": 2
+                "username": "Jet"
+            },
+            "items": [
+                {
+                "id": 2,
+                "name": "Scale",
+                "description": "measures up to a mg",
+                "price": "60.25"
+                }
+            ]
             },
             {
+            "id": 3,
+            "name": "CityLocation",
+            "user_id": 3,
+            "user": {
                 "id": 3,
-                "name": "CityLocation",
-                "user_id": 3
+                "username": "Erica"
+            },
+            "items": [
+                {
+                "id": 3,
+                "name": "Curtains",
+                "description": "Nice looking things",
+                "price": "40.25"
+                }
+            ]
             }
         ]
     }
