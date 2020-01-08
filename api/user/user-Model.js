@@ -7,6 +7,13 @@ const getlocations =(Lid)=>{
     .where("user_id", Lid)
 }
 
+const getItems = (Uid)=>{
+    return db('africa')
+    .select('i.id', 'i.name', 'i.description', 'i.price')
+    .from('item as i')
+    .where('user_id',Uid )
+}
+
 const getAllusers = ()=>{
     return db('africa')
     .select("id","username")
@@ -14,7 +21,8 @@ const getAllusers = ()=>{
     .then(async(list)=>{
         return Promise.all(list.map(async(user)=>{
             const yeet = await getlocations(user.id)
-            return {...user, locations:yeet}
+            const TheItems = await getItems(user.id)
+            return {...user, locations:yeet, items:TheItems}
         })) 
     })
 }
@@ -27,7 +35,8 @@ const getUser = (id)=>{
     .first()
     .then(async(user)=>{
         const yate = await getlocations(user.id)
-        return {...user, locations: yate}
+        const Theitems = await getItems(user.id)
+        return {...user, locations: yate, items: Theitems}
     })
 }
 

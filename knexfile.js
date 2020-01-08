@@ -2,13 +2,23 @@
 
 module.exports = {
 
-  // development: {
-  //   client: 'sqlite3',
-  //   useNullAsDefault: true,
-  //   connection: {
-  //     filename: './data/dev.sqlite3'
-  //   }
-  // },
+  development: {
+    client: 'pg',
+    useNullAsDefault: true,
+    connection: {
+      host:'localhost',
+      database: 'africa',
+      user: 'africa',
+      password: process.env['PASSWORD']
+    },
+    migrations:{
+      directory: "./data/migrations"
+    },
+    seeds:{
+      directory:"./data/seeds"
+    }
+
+  },
 
   production: {
     client: "pg",
