@@ -233,7 +233,19 @@ Node.js
         "location": {
             "id": 1,
             "name": "CityLocation",
-            "user_id": 1
+            "user_id": 1,
+            "user": {
+                "id": 1,
+                "username": "Kyle"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Beef",
+                    "description": "Tasty meat",
+                    "price": "30.25"
+                }
+            ]
         }
     }
 
