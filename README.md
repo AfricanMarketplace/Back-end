@@ -52,43 +52,67 @@ Node.js
 **Returns:**
 
     {
-    "users": [
-        {
-        "id": 1,
-        "username": "Kyle",
-        "locations": [
+        "users": [
             {
-            "id": 1,
-            "name": "CityLocation",
-            "user_id": 1
+                "id": 1,
+                "username": "Kyle",
+                "locations": [
+                    {
+                    "id": 1,
+                    "name": "CityLocation",
+                    "user_id": 1
+                    }
+                ],
+                "items": [
+                    {
+                    "id": 1,
+                    "name": "Beef",
+                    "description": "Tasty meat",
+                    "price": "30.25"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "username": "Jet",
+                "locations": [
+                    {
+                    "id": 2,
+                    "name": "RuralLocation",
+                    "user_id": 2
+                    }
+                ],
+                "items": [
+                    {
+                    "id": 2,
+                    "name": "Scale",
+                    "description": "measures up to a mg",
+                    "price": "60.25"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "username": "Erica",
+                "locations": [
+                        {
+                        "id": 3,
+                        "name": "CityLocation",
+                        "user_id": 3
+                        }
+                ],
+                "items": [
+                        {
+                        "id": 3,
+                        "name": "Curtains",
+                        "description": "Nice looking things",
+                        "price": "40.25"
+                        }
+                ]
             }
         ]
-        },
-        {
-        "id": 2,
-        "username": "Jet",
-        "locations": [
-            {
-            "id": 2,
-            "name": "RuralLocation",
-            "user_id": 2
-            }
-        ]
-        },
-        {
-        "id": 3,
-        "username": "Erica",
-        "locations": [
-            {
-            "id": 3,
-            "name": "CityLocation",
-            "user_id": 3
-            }
-        ]
-        }
-    ]
     }
-
+    
 ## (users) **GET** users/:id
 
 **Returns**
