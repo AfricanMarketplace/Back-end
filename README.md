@@ -6,6 +6,7 @@ Node.js
 #### Authenticaion endPoints:
 
 **You must login first with a previously made account or one that you registerd with.**
+**VERY IMPORTANT: Usernames must be unique**
 
 ## (auth) **POST** /auth/register
 
