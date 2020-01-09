@@ -1,5 +1,7 @@
 const db = require("../../data/db-config.js");
 
+
+
 const getlocations =(Lid)=>{
     return db('africa')
     .select('*')

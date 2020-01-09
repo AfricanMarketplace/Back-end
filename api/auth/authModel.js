@@ -4,11 +4,35 @@ const UserModel = require("../user/user-Model.js");
 
 
 
+
 const addUser=(person)=>{
 
     return db('users')
     .insert(person, "id")
         
+}
+
+const getItemsFrom = (Uid)=>{
+    return db ('africa')
+    .select('i.id', 'i.name','i.description', 'i.price')
+    .from('users')
+    .join('item as i', 'users.id', 'i.user_id')
+    .where('users.id', Uid)
+}
+
+const getLocations = (Uid)=>{
+    return db ('africa')
+    .select('id', 'name')
+    .from('location')
+    .where('user_id', Uid)
+    .then(async(list)=>{
+        return Promise.all(list.map(async(loc)=>{
+            const itemsList = await getItemsFrom(Uid)
+
+
+            return{...loc, items:itemsList}
+        }))
+    })
 }
 
 const Login = (user)=>{
@@ -18,10 +42,11 @@ const Login = (user)=>{
     .where({username:user.username})
     .first()
     .then(async(user)=>{
-       const format=await UserModel.getUser(user.id)
-       console.log(format)
+       var format = await UserModel.getUser(user.id)
+       const AllLocations = await getLocations(user.id)
+
+       format = {...format, locations: AllLocations }
        user = {...user, nice:format}
-       console.log(user)
        return user;
     })
 }
