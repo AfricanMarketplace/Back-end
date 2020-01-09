@@ -8,9 +8,8 @@ const bcrypt = require('bcrypt');
 
 describe("Register and Login", function(){
 
-    beforeEach(() => {
-        jest.setTimeout(100000);
-      });
+
+
 
      describe('post auth/register',  function(){
 
@@ -63,25 +62,6 @@ describe("Register and Login", function(){
  
         })
 
-        it('responds with 200 when deleteing a user', async function(){
-
-            const findId =()=>{
-                return db ('africa')
-                .select('id')
-                .from('users')
-                .where({username: 'john'})
-                .first()
-            }
-
-            const id = await findId();
-            
-
-            request(server)
-            .delete(`/users/${id}`)
-            .set('Accept', 'application/json')
-            .expect(200)
-
-        })
 
         it('responds with json', function(done) {
             request(server)
