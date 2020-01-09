@@ -36,7 +36,9 @@ router.post('/login', (req,res)=>{
                 const token = signToken(user)
                 res.status(200).json({
                     token,
-                    message: `welcome ${user.username}`})
+                    message: `welcome ${user.username}`,
+                    format: user.nice}
+                    )
             }else{
                 res.status(500).json({message:"invalid credentials"})
             }

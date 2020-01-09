@@ -13,10 +13,10 @@ const restrictedMiddleWare = require("./auth/restricted.js");
 
 app.use(express.json());
 app.use(cors());
-app.use('/users',restrictedMiddleWare, userRouter)
-app.use('/location',restrictedMiddleWare, locationRouter)
-app.use('/item',restrictedMiddleWare, itemRouter);
-app.use('/category',restrictedMiddleWare, CategoryRouter);
+app.use('/users', userRouter)
+app.use('/location', locationRouter)
+app.use('/item', itemRouter);
+app.use('/category', CategoryRouter);
 app.use('/auth', authRouter);
 
 module.exports = app;
