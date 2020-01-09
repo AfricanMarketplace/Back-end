@@ -1,4 +1,6 @@
-const db = require("../../data/db-config.js")
+const db = require("../../data/db-config.js");
+
+const UserModel = require("../user/user-Model.js");
 
 
 
@@ -15,6 +17,13 @@ const Login = (user)=>{
     .from('users')
     .where({username:user.username})
     .first()
+    .then(async(user)=>{
+       const format=await UserModel.getUser(user.id)
+       console.log(format)
+       user = {...user, nice:format}
+       console.log(user)
+       return user;
+    })
 }
 
 

@@ -39,6 +39,25 @@ Node.js
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTc0MTA2MjAxLCJleHAiOjE1NzQxOTI2MDF9.2e86pVoODyESq7hq-rQgBmh04ms64fdcbuK5PJxQ2ms"
         "message": "welcome Jet"
+        "format": {
+            "id": 2,
+            "username": "Jet",
+            "locations": [
+                {
+                    "id": 2,
+                    "name": "RuralLocation",
+                    "user_id": 2
+                }
+            ],
+            "items": [
+                {
+                    "id": 2,
+                    "name": "Scale",
+                    "description": "measures up to a mg",
+                    "price": "60.25"
+                }
+            ]
+        }
     }
 
 ## When you get the token, store it in local/session storage
