@@ -19,9 +19,9 @@ const Login = (user)=>{
     .first()
     .then(async(user)=>{
        const format=await UserModel.getUser(user.id)
-       console.log(format)
+       
        user = {...user, nice:format}
-       console.log(user)
+       
        return user;
     })
 }
