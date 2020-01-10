@@ -8,8 +8,14 @@ const bcrypt = require('bcrypt');
 
 describe("Register and Login", function(){
 
+        beforeEach( async ()=>{
+          await db('users').truncate();
+      })
 
-
+      //   beforeEach(async () => {
+      //     await db.seed.run();
+      // });
+    
 
      describe('post auth/register',  function(){
 
