@@ -22,6 +22,7 @@ router.get("/:id",(req,res)=>{
     qs.getUser(id)
     .then(user=>{
         res.status(200).json({user})
+
     })
     .catch(err=>{
         
