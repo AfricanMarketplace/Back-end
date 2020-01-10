@@ -2,6 +2,8 @@ const express = require('express');
 const qs = require("./user-Model.js");
 const router = express.Router();
 
+const bcrypt = require('bcrypt');
+
 
 //user CRUD***************************************************
 router.get('/', (req,res)=>{
@@ -51,14 +53,32 @@ router.delete('/:id', (req,res)=>{
 router.put("/:id", (req,res)=>{
     const id = req.params.id;
     const body = req.body;
-    qs.editUser(id, body)
-    .then(id=>{
-        res.status(200).json({id})
-    })
-    .catch(err=>{
-        console.log(err)
-        res.status(200).json({err})
-    })
+
+    if(body.password){
+        bcrypt.hash(body.password, 8,(err,hash)=>{
+            body.password = hash
+            
+            qs.editUser(id, body)
+            .then(id=>{
+                res.status(200).json({id})
+            })
+            .catch(err=>{
+                console.log(err)
+                res.status(500).json({err})
+            })
+        })
+    }else{
+
+        qs.editUser(id, body)
+        .then(id=>{
+            res.status(200).json({id})
+        })
+        .catch(err=>{
+            console.log(err)
+            res.status(500).json({err})
+        })
+    }
+    
 })
 
 
