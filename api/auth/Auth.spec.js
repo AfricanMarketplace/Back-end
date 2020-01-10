@@ -19,12 +19,12 @@ describe("Register and Login", function(){
 
      describe('post auth/register',  function(){
 
-        it('responds with 200 status on register', function(done) {
+        it('responds with 500 status on register for duplicat username', function(done) {
             request(server)
               .post('/auth/register')
               .send({username: 'john', password: 'john'})
               .set('Accept', 'application/json')
-              .expect(200)
+              .expect(500)
               .end(function(err, res) {
                 if (err) return done(err);
                 done();
