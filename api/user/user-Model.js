@@ -20,7 +20,7 @@ const getAllusers = ()=>{
     return db('africa')
     .select("id","username")
     .from('users')
-    .orderBy('id')
+    .orderBy('id', "desc")
     .then(async(list)=>{
         return Promise.all(list.map(async(user)=>{
             const yeet = await getlocations(user.id)
