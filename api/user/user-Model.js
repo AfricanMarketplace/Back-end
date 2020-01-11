@@ -7,6 +7,7 @@ const getlocations =(Lid)=>{
     .select('*')
     .from('location')
     .where("user_id", Lid)
+    .orderBy('id')
 }
 
 const getItems = (Uid)=>{
@@ -14,13 +15,14 @@ const getItems = (Uid)=>{
     .select('i.id', 'i.name', 'i.description', 'i.price')
     .from('item as i')
     .where('user_id',Uid )
+    .orderBy("i.id")
 }
 
 const getAllusers = ()=>{
     return db('africa')
     .select("id","username")
     .from('users')
-    .orderBy('id', "desc")
+    .orderBy('id')
     .then(async(list)=>{
         return Promise.all(list.map(async(user)=>{
             const yeet = await getlocations(user.id)

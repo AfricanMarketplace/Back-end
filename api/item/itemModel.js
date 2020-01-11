@@ -20,6 +20,7 @@ const getAll = ()=>{
     return db ('africa')
     .select('id','name', 'description', 'price', 'user_id', "category_id")
     .from('item')
+    .orderBy('id')
     .then(async(list)=>{
         return Promise.all(list.map(async(item)=>{
             const yeet = await getusers(item.user_id)

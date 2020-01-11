@@ -5,12 +5,14 @@ const getItems = (Cid)=>{
     .select('*')
     .from("item")
     .where("category_id", Cid)
+    .orderBy('id')
 }
 
 const getAll = ()=>{
     return db ('africa')
     .select("*")
     .from('category')
+    .orderBy('id')
     .then(async(list)=>{
         return Promise.all(list.map(async(cat)=>{
             const yeet = await getItems(cat.id)
