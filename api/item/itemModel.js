@@ -48,6 +48,7 @@ const getById = (id)=>{
 const addItem = (body)=>{
     return db ('item')
     .insert(body, "id")
+    .first()
 }
 
 const editItem = (id, body)=>{
