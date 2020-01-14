@@ -25,14 +25,6 @@ const getLocations = (Uid)=>{
     .select('id', 'name')
     .from('location')
     .where('user_id', Uid)
-    .then(async(list)=>{
-        return Promise.all(list.map(async(loc)=>{
-            const itemsList = await getItemsFrom(Uid)
-
-
-            return{...loc, items:itemsList}
-        }))
-    })
 }
 
 const Login = (user)=>{
