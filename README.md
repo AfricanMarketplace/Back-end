@@ -1,7 +1,7 @@
 # Back-end
 Node.js
 
-[Heroku App] (https://africa-marketplace.herokuapp.com/) :) :):):) :) :)
+[Heroku App] (https://africa-marketplace.herokuapp.com/) :) :):):) :) :) :)
 
 #### Authenticaion endPoints:
 
