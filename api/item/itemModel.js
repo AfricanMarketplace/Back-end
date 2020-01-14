@@ -48,7 +48,9 @@ const getById = (id)=>{
 const addItem = (body)=>{
     return db ('item')
     .insert(body, "id")
-    .first()
+    .then(id=>{
+        return id[0]
+    })
 }
 
 const editItem = (id, body)=>{

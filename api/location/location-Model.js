@@ -48,7 +48,9 @@ const getbyId = (id)=>{
 const addLocation = (body)=>{
     return db ('location')
     .insert(body, 'id')
-    .first()
+    .then(id=>{
+        return id[0]
+    })
 }
 
 const editLocation = (id, body)=>{

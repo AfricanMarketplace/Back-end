@@ -32,6 +32,7 @@ router.post('/', (req,res)=>{
         res.status(200).json({id})
     })
     .catch(err=>{
+        console.log(err)
         res.status(500).json({err})
     })
 })
