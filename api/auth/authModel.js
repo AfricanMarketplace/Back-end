@@ -37,7 +37,7 @@ const Login = (user)=>{
        var format = await UserModel.getUser(user.id)
        const AllLocations = await getLocations(user.id)
 
-       format = {...format, locations: AllLocations }
+       format = {...format }
        user = {...user, nice:format}
        return user;
     })

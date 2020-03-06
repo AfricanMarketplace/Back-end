@@ -14,7 +14,7 @@ exports.up = function(knex) {
 
       //foreign keys
 
-      tbl.integer('user_id', 128)
+      tbl.integer('user_id')
         .unsigned()
         .references("id")
         .inTable("users")
@@ -23,13 +23,21 @@ exports.up = function(knex) {
         .onUpdate("CASCADE");
 
 
-      tbl.integer('category_id', 128)
+      tbl.integer('category_id')
         .unsigned()
         .references("id")
         .inTable("category")
         .notNullable()
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
+
+      tbl.integer('location_id')
+      .unsigned()
+      .references("id")
+      .inTable("location")
+      .notNullable()
+      .onDelete("CASCADE")
+      .onUpdate("CASCADE");
 
 
   })

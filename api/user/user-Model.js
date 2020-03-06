@@ -1,6 +1,12 @@
 const db = require("../../data/db-config.js");
 
-
+const getItems = (Lid)=>{
+    return db('africa')
+    .select('i.id', 'i.name', 'i.description', 'i.price')
+    .from('item as i')
+    .where('location_id',Lid )
+    .orderBy("i.id")
+}
 
 const getlocations =(Lid)=>{
     return db('africa')
@@ -8,15 +14,14 @@ const getlocations =(Lid)=>{
     .from('location')
     .where("user_id", Lid)
     .orderBy('id')
+    .then(async (list)=>{
+        return Promise.all(list.map(async(location)=>{
+            const TheItems = await getItems(location.id)
+            return {...location, items:TheItems}
+        })) 
+    })
 }
 
-const getItems = (Uid)=>{
-    return db('africa')
-    .select('i.id', 'i.name', 'i.description', 'i.price')
-    .from('item as i')
-    .where('user_id',Uid )
-    .orderBy("i.id")
-}
 
 const getAllusers = ()=>{
     return db('africa')
@@ -26,8 +31,7 @@ const getAllusers = ()=>{
     .then(async(list)=>{
         return Promise.all(list.map(async(user)=>{
             const yeet = await getlocations(user.id)
-            const TheItems = await getItems(user.id)
-            return {...user, locations:yeet, items:TheItems}
+            return {...user, locations:yeet}
         })) 
     })
 }
@@ -40,8 +44,7 @@ const getUser = (id)=>{
     .first()
     .then(async(user)=>{
         const yate = await getlocations(user.id)
-        const Theitems = await getItems(user.id)
-        return {...user, locations: yate, items: Theitems}
+        return {...user, locations: yate}
     })
 }
 
