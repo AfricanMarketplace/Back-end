@@ -33,14 +33,14 @@ const Login = (user)=>{
     .from('users')
     .where({username:user.username})
     .first()
-    .then(async(user)=>{
-       var format = await UserModel.getUser(user.id)
-       const AllLocations = await getLocations(user.id)
+    // .then(async(user)=>{
+    //    var format = await UserModel.getUser(user.id)
+    //    const AllLocations = await getLocations(user.id)
 
-       format = {...format }
-       user = {...user, nice:format}
-       return user;
-    })
+    //    format = {...format }
+    //    user = {...user, nice:format}
+    //    return user;
+    // })
 }
 
 
