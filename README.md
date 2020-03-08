@@ -60,6 +60,12 @@ Node.js
         }
     }
 
+    {
+         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGdWxsdXNlciI6MSwiaWF0IjoxNTgzNTQ1MzgxLCJleHAiOjE1ODM1NDg5ODF9.GMuMstbZqkG5O89JZTv9rRYFrJCEIMWxFYCXb2HDBpw",
+        "message": "welcome Kyle",
+        "id": 1
+    }
+
 ## When you get the token, store it in local/session storage
 ## From the remaining endpoints, you need to have that token in a header under the key "authorization"
 ## If you dont you will not be allowed to see any other information
