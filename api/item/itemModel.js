@@ -33,10 +33,11 @@ const getAll = ()=>{
 
 const getById = (id)=>{
     return db ('africa')
-    .select('id','name', 'description', 'price', 'user_id', "category_id")
+    .select('id','name', 'description', 'price', 'user_id', "category_id", "u.username as owner", "c.name as category")
     .from('item')
+    .join("users as u", "item.user_id", "u.id")
+    .join("category as c", "item.category_id", "c.id")
     .where("item.id", id)
-    .first()
     .then(async(item)=>{
         const yeet = await getusers(item.user_id)
         const yate = await getCategory(item.category_id)
