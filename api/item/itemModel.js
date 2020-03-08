@@ -18,32 +18,25 @@ const getCategory = (Cid)=>{
 
 const getAll = ()=>{
     return db ('africa')
-    .select('id','name', 'description', 'price', 'user_id', "category_id")
+    .select('item.id','item.name', 'description', 'price', 'item.user_id', "category_id", "location_id", "u.username as owner", "c.name as category", "l.name as location")
     .from('item')
     .orderBy('id')
-    .then(async(list)=>{
-        return Promise.all(list.map(async(item)=>{
-            const yeet = await getusers(item.user_id)
-            const yate = await getCategory(item.category_id)
-
-            return {...item, user: yeet, category: yate}
-        }))
-    })
-}
-
-const getById = (id)=>{
-    return db ('africa')
-    .select('id','name', 'description', 'price', 'user_id', "category_id", "u.username as owner", "c.name as category")
-    .from('item')
     .join("users as u", "item.user_id", "u.id")
     .join("category as c", "item.category_id", "c.id")
-    .where("item.id", id)
-    .then(async(item)=>{
-        const yeet = await getusers(item.user_id)
-        const yate = await getCategory(item.category_id)
+    .join("location as l", "item.location_id", "l.id")
 
-        return {...item, user: yeet, category: yate}
-    })
+}
+
+const getById = (Uid)=>{
+    return db ('africa')
+    .select('item.id','item.name', 'description', 'price', 'item.user_id', "category_id", "location_id", "u.username as owner", "c.name as category", "l.name as location")
+    .from('item')
+    .orderBy('id')
+    .join("users as u", "item.user_id", "u.id")
+    .join("category as c", "item.category_id", "c.id")
+    .join("location as l", "item.location_id", "l.id")
+    .where("item.user_id", Uid)
+
 }
 
 const addItem = (body)=>{
