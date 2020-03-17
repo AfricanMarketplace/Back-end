@@ -14,12 +14,7 @@ const getlocations =(Lid)=>{
     .from('location')
     .where("user_id", Lid)
     .orderBy('id')
-    .then(async (list)=>{
-        return Promise.all(list.map(async(location)=>{
-            const TheItems = await getItems(location.id)
-            return {...location, items:TheItems}
-        })) 
-    })
+
 }
 
 
