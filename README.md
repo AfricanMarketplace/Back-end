@@ -144,21 +144,13 @@ Node.js
 
     {
         "user": {
-            "id": 2,
-            "username": "Jet",
+            "id": 1,
+            "username": "Kyle",
             "locations": [
                 {
-                    "id": 2,
+                    "id": 1,
                     "name": "RuralLocation",
-                    "user_id": 2
-                }
-            ],
-            "items": [
-                {
-                    "id": 2,
-                    "name": "Scale",
-                    "description": "measures up to a mg",
-                    "price": "60.25"
+                    "user_id": 1
                 }
             ]
         }
