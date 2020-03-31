@@ -8,13 +8,29 @@ const getItems = (Lid)=>{
     .orderBy("i.id")
 }
 
-const getlocations =(Lid)=>{
-    return db('africa')
-    .select('*')
+//reserved for function below. Acts as a sub query to be ran on each location to get their item
+const getItemCount = (Uid)=>{
+    return db('location')
+    .count('item.name as count')
     .from('location')
-    .where("user_id", Lid)
-    .orderBy('id')
+    .join('item', 'location.id', 'item.location_id')
+    .where('location.user_id', Uid)
+    .first()
+}
 
+const getlocations =(Uid)=>{
+
+    return db('africa')
+    .select('id', 'name', 'user_id')
+    .from('location')
+    .where("user_id", Uid)
+    .orderBy('id')
+    .then(async(list)=>{
+        return Promise.all(list.map(async(loc)=>{
+            const yate = await getItemCount(loc.user_id)
+            return {...loc, itemCount:yate.count}
+        })) 
+    })
 }
 
 
