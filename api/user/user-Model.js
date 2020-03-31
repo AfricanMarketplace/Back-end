@@ -9,12 +9,12 @@ const getItems = (Lid)=>{
 }
 
 //reserved for function below. Acts as a sub query to be ran on each location to get their item
-const getItemCount = (Uid)=>{
+const getItemCount = (Lid)=>{
     return db('location')
     .count('item.name as count')
     .from('location')
     .join('item', 'location.id', 'item.location_id')
-    .where('location.user_id', Uid)
+    .where('location.id', Lid)
     .first()
 }
 
@@ -27,7 +27,7 @@ const getlocations =(Uid)=>{
     .orderBy('id')
     .then(async(list)=>{
         return Promise.all(list.map(async(loc)=>{
-            const yate = await getItemCount(loc.user_id)
+            const yate = await getItemCount(loc.id)
             return {...loc, itemCount:yate.count}
         })) 
     })
