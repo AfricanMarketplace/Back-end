@@ -9,14 +9,14 @@ const itemRouter = require("./item/itemRouter.js");
 const CategoryRouter = require("./category/categoryRouter.js");
 const app = express();
 
-const restrictedMiddleWare = require("./auth/restricted.js");
+const tokenCheck = require("./auth/restricted.js");
 
 app.use(express.json());
 app.use(cors());
-app.use('/users', userRouter)
-app.use('/location', locationRouter)
-app.use('/item', itemRouter);
-app.use('/category', CategoryRouter);
+app.use('/users',tokenCheck.restricted, userRouter)
+app.use('/location',tokenCheck.restricted, locationRouter)
+app.use('/item',tokenCheck.restricted, itemRouter);
+app.use('/category',tokenCheck.restricted, CategoryRouter);
 app.use('/auth', authRouter);
 
 module.exports = app;

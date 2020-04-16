@@ -48,7 +48,7 @@ router.post('/login', (req,res)=>{
 function signToken(user){
 
     const payload={
-        Fulluser: user.id
+        user_id: user.id
     }
 
     const key = process.env.TOKEN_SECRET;

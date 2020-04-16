@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const qs = require('./itemModel.js');
 
+const tokenCheck = require("../auth/restricted.js")
+
+
 
 router.get('/', (req,res)=>{
     qs.getAll()
@@ -26,7 +29,7 @@ router.get('/:id', (req,res)=>{
     })
 })
 
-router.post('/', (req,res)=>{
+router.post('/', tokenCheck.tokenMatchesUserIdProperty, (req,res)=>{
     const body = req.body;
     qs.addItem(body)
     .then(id=>{
@@ -38,7 +41,7 @@ router.post('/', (req,res)=>{
     })
 })
 
-router.put("/:id", (req,res)=>{
+router.put("/:id", tokenCheck.tokenMatchesUserIdProperty, (req,res)=>{
     const body = req.body;
     const id = req.params.id;
 

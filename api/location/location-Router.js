@@ -2,6 +2,8 @@ const express = require('express')
 const qs = require("./location-Model.js");
 const router = express.Router();
 
+const tokenCheck = require("../auth/restricted.js")
+
 router.get('/', (req,res)=>{
     qs.getAll()
     .then(locations=>{
@@ -23,7 +25,7 @@ router.get('/:id',(req,res)=>{
     })
 })
 
-router.post('/', (req,res)=>{
+router.post('/', tokenCheck.tokenMatchesUserIdProperty, (req,res)=>{
     const body = req.body;
     qs.addLocation(body)
     .then(id=>{
