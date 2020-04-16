@@ -4,10 +4,11 @@ const router = express.Router();
 
 const bcrypt = require('bcrypt');
 
+const tokenCheck = require("../auth/restricted.js")
+
 
 //user CRUD***************************************************
 router.get('/', (req,res)=>{
-    console.log("Hi there")
     qs.getAllusers()
     .then(users=>{
         res.status(200).json({users})
@@ -18,8 +19,8 @@ router.get('/', (req,res)=>{
     })
 
 })
-
-router.get("/:id",(req,res)=>{
+//this one needs param
+router.get("/:id",tokenCheck.tokenMatchesUserIdParam, (req,res)=>{
     const id = req.params.id;
     qs.getUser(id)
     .then(user=>{
@@ -50,7 +51,8 @@ router.delete('/:id', (req,res)=>{
 
 })
 
-router.put("/:id", (req,res)=>{
+//this one needs param
+router.put("/:id", tokenCheck.tokenMatchesUserIdParam, (req,res)=>{
     const id = req.params.id;
     const body = req.body;
 

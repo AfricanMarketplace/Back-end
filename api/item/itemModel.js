@@ -29,7 +29,7 @@ const getAll = ()=>{
 
 const getById = (Uid)=>{
     return db ('africa')
-    .select('item.id','item.name', 'description', 'price', 'item.user_id', "category_id", "location_id", "u.username as owner", "c.name as category", "l.name as location")
+    .select('item.id','item.name', 'description', 'price', 'item.user_id', "category_id", "location_id")
     .from('item')
     .orderBy('id')
     .join("users as u", "item.user_id", "u.id")

@@ -15,8 +15,8 @@ router.get('/', (req,res)=>{
         res.status(500).json({err})
     })
 })
-
-router.get('/:id', (req,res)=>{
+//this one needs param
+router.get('/:id', tokenCheck.tokenMatchesUserIdParam, (req,res)=>{
     const id = req.params.id;
 
     qs.getById(id)
