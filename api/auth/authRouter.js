@@ -19,8 +19,13 @@ router.post('/register', (req,res)=>{
             res.status(200).json({user})
         })
         .catch((err)=>{
-            console.log(err)
-            res.status(500).json({err})
+            if(err.code === '23505'){
+                console.log(err)
+                res.status(409).json({err, message:'username is not unique'})
+            }else{
+                console.log(err)
+                res.status(500).json({err})
+            }
         })
     })
     
